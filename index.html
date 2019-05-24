@@ -21,7 +21,7 @@
           container: '#kakao-login-btn',
           success: function(authObj) {
             logs = Kakao.Auth.getStatus(callback);
-            console.log(logs)
+            console.log(logs);
           },
           fail: function(err) {
              alert(JSON.stringify(err));
