@@ -6,6 +6,15 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
     <title>Login Demo - Kakao JavaScript SDK</title>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>
+    function onSignIn(authObj) {
+      var profile = authObj.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+    }
+  </script>
     </head>
     <body>
     <a id="kakao-login-btn"></a>
@@ -18,8 +27,9 @@
         Kakao.Auth.createLoginButton({
           container: '#kakao-login-btn',
           success: function(authObj) {
-s            alert(JSON.stringify(authObj));
-            console.log(JSON.stringify(authObj));
+            onSignIn();
+            alert(JSON.stringify(authObj));
+
           },
           fail: function(err) {
              alert(JSON.stringify(err));
@@ -27,6 +37,9 @@ s            alert(JSON.stringify(authObj));
         });
       //]]>
     </script>
+
+
+
 
     </body>
     </html>
