@@ -13,7 +13,8 @@
         Kakao.Auth.createLoginButton({
           container: '#kakao-login-btn',
           success: function(authObj) {
-            console.log(JSON.stringify(authObj));
+            var user_acctok = JSON.stringify(authObj);
+            console.log(user_acctok);
           },
           fail: function(err) {
              alert(JSON.stringify(err));
